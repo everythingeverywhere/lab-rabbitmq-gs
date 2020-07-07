@@ -15,7 +15,13 @@ RUN HOME=/root && \
 
     chmod +x apache-maven-3.6.3 && \
 
-    sudo mv ./apache-maven-3.6.3-bin.tar.gz ../../bin \
+    sudo mv ./apache-maven-3.6.3-bin.tar.gz ../../bin && \
+    
+    yum install erlang && \
+
+    rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc && \
+
+    yum install rabbitmq-server-3.8.5-1.el8.noarch.rpm \
 
 USER 1001
 
