@@ -21,7 +21,9 @@ RUN HOME=/root && \
 
     rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc && \
 
-    yum install rabbitmq-server-3.8.5-1.el8.noarch.rpm \
+    yum install rabbitmq-server-3.8.5-1.el8.noarch.rpm && \
+
+    chkconfig rabbitmq-server on \
 
 USER 1001
 
