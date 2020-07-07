@@ -1,1 +1,7 @@
-This is the initial landing page for your workshop. Include in this page a description of what your workshop is about.
+# Messaging with RabbitMQ
+
+This guide walks you through the process of setting up a RabbitMQ AMQP server that publishes and subscribes to messages and creating a Spring Boot application to interact with that RabbitMQ server.
+
+## What You Will Build
+
+You will build an application that publishes a message by using Spring AMQP’s `RabbitTemplate` and subscribes to the message on a POJO by using `MessageListenerAdapter`.

@@ -1,19 +1,19 @@
 apiVersion: training.eduk8s.io/v1alpha2
 kind: Workshop
 metadata:
-  name: lab-markdown-sample
+  name: lab-rabbitmq-gs
 spec:
-  title: Markdown Sample
-  description: A sample workshop using Markdown
+  title: Getting Started with RabbitMQ
+  description: A getting started guide for rabbitMQ
   vendor: eduk8s.io
   difficulty: beginner
   duration: 15m
-  url: https://github.com/eduk8s/lab-markdown-sample
+  url: github.com/everythingeverywhere/lab-rabbitmq-gs
   content:
-    #image: quay.io/eduk8s/lab-markdown-sample:master
-    files: github.com/eduk8s/lab-markdown-sample
+    #image: jdk8-environment:master
+    files: github.com/everythingeverywhere/lab-rabbitmq-gs
   session:
-    budget: small
+    budget: medium
     applications:
       console:
         enabled: true

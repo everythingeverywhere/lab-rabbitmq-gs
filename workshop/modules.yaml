@@ -5,8 +5,20 @@ modules:
     setup-environment:
         name: Setup Environment
         exit_sign: Start Workshop
-    exercises/01-sample-content:
-        name: Sample Content
+    exercises/01-rabbitmq-broker:
+        name: Set up the RabbitMQ Broker
+    exercises/02-spring-initializr:
+        name: Starting with Spring Initializr
+    exercises/03-message-receiver:
+        name: Create a RabbitMQ Message Receiver
+    exercises/04-send-message:
+        name: Register the Listener and Send a Message
+    exercises/05-test-message:
+        name: Send a Test Message
+    exercises/06-run-app:
+        name: Run the Application
+    exercises/07-build-jar:
+        name: Build an executable JAR
     workshop-summary:
         name: Workshop Summary
         exit_sign: Finish Workshop

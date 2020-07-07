@@ -1,8 +1,13 @@
-name: Markdown Sample
+name: RabbitMQ Getting Started
 
 modules:
     activate:
     - workshop-overview
-    - setup-environment
-    - exercises/01-sample-content
+    - exercises/01-rabbitmq-broker
+    - exercises/02-spring-initializr
+    - exercises/03-message-receiver
+    - exercises/04-send-message
+    - exercises/05-test-message
+    - exercises/06-run-app
+    - exercises/07-build-jar
     - workshop-summary
