@@ -9,13 +9,15 @@ RUN fix-permissions /home/eduk8s
 USER root
 
 RUN HOME=/root && \
-    curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz --output apache-maven-3.6.3-bin.tar.gz && \
+    # curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz --output apache-maven-3.6.3-bin.tar.gz && \
 
-    tar xzvf apache-maven-3.6.3-bin.tar.gz && \
+    # tar xzvf apache-maven-3.6.3-bin.tar.gz && \
 
-    chmod +x apache-maven-3.6.3 && \
+    # chmod +x apache-maven-3.6.3 && \
 
-    sudo mv ./apache-maven-3.6.3-bin.tar.gz ../../bin && \
+    # sudo mv ./apache-maven-3.6.3-bin.tar.gz /home/eduk8s/bin && \
+
+    su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' &&\
     
     yum install erlang && \
 
