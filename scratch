@@ -1,0 +1,13 @@
+  curl https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc --output rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc
+
+    curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-3.8.5-1.el8.noarch.rpm 
+
+    chmod +x rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc
+    chmod +x rabbitmq-server
+
+mkdir /home/eduk8s/bin
+
+    mv rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc rabbitmq-server-3.8.5-1.el8.noarch.rpm /home/eduk8s/bin
+
+rabbitmq-server-3.8.5-1.el8.noarch.rpm
+    

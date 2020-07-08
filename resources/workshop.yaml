@@ -7,7 +7,7 @@ spec:
   description: A getting started guide for rabbitMQ
   vendor: eduk8s.io
   difficulty: beginner
-  duration: 15m
+  duration: 65m
   url: github.com/everythingeverywhere/lab-rabbitmq-gs
   content:
     image: quay.io/eduk8s/jdk8-environment:master
