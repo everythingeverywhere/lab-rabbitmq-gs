@@ -17,9 +17,9 @@ RUN HOME=/root && \
 
     # sudo mv ./apache-maven-3.6.3-bin.tar.gz /home/eduk8s/bin && \
 
-    su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' &&\
+    su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' && \
     
-    yum install erlang && \
+    sudo dnf -y install erlang && \
 
     rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc && \
 
