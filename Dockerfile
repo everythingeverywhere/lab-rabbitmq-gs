@@ -19,7 +19,8 @@ RUN HOME=/root && \
   sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
 
   gpg --verify rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz && \
-
+  
+  mkdir /home/eduk8s/bin && \
   mv rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz /home/eduk8s/bin && \
 
   chmod +x /home/eduk8s/bin/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
