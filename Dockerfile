@@ -10,30 +10,24 @@ USER root
 
 RUN HOME=/root && \
 
-    curl https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc --output rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc && \
+  curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-generic-unix-3.8.5.tar.xz && \
 
-    curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-3.8.5-1.el8.noarch.rpm && \
+  curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
 
-    chmod +x rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc && \
-    chmod +x rabbitmq-server-3.8.5-1.el8.noarch.rpm && \
+  sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz && \
 
-    mv rabbitmq-server-3.8.5-1.el8.noarch.rpm.asc rabbitmq-server-3.8.5-1.el8.noarch.rpm /bin && \
+  sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
 
-    su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' && \
+  gpg --verify rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz && \
 
-    sudo yum -y update && \
-    
-    sudo dnf -y install erlang && \
+  mv rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz /home/eduk8s/bin && \
 
-    rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc && \
+  chmod +x /home/eduk8s/bin/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
 
-    yum install rabbitmq-server-3.8.5-1.el8.noarch.rpm && \
-
-    chkconfig rabbitmq-server on \
+  chmod +x /home/eduk8s/bin/rabbitmq-server-generic-unix-3.8.5.tar.xz && \
 
 USER 1001
 
-RUN fix-permissions /home/eduk8s
 
 
   
