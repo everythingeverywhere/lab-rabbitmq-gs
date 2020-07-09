@@ -14,6 +14,10 @@ RUN HOME=/root && \
 
   curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
 
+  curl -LJO https://packages.erlang-solutions.com/erlang/rpm/centos/6/x86_64/esl-erlang_R16B03-6~centos~6_amd64.rpm && \
+
+  rpm -Uvh esl-erlang_R16B03-6~centos~6_amd64.rpm && \
+
   sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz && \
 
   sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
