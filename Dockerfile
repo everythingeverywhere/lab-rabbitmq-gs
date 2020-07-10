@@ -8,18 +8,13 @@ RUN fix-permissions /home/eduk8s
 
 USER root
 
-RUN curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-generic-unix-3.8.5.tar.xz && \
-    curl -LJO https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.5/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
-    curl -LJO https://packages.erlang-solutions.com/erlang/rpm/centos/6/x86_64/esl-erlang_R16B03-6~centos~6_amd64.rpm && \
-    su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm' && \
-    rpm -Uvh esl-erlang_R16B03-6~centos~6_amd64.rpm && \
-    sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz && \
-    sudo tar -xvf rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
-    gpg --verify rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz && \
-    mkdir /home/eduk8s/bin && \
-    sudo mv rabbitmq-server-generic-unix-3.8.5.tar.xz.asc rabbitmq-server-generic-unix-3.8.5.tar.xz /home/eduk8s/bin && \
-    chmod +x /home/eduk8s/bin/rabbitmq-server-generic-unix-3.8.5.tar.xz.asc && \
-    chmod +x /home/eduk8s/bin/rabbitmq-server-generic-unix-3.8.5.tar.xz && \
+RUN su -c 'rpm -Uvh https://download.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm'
+
+RUN sudo yum -y update
+
+RUN yum install erlang
+
+RUN curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
 
 USER 1001
 
