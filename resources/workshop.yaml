@@ -12,10 +12,42 @@ spec:
   content:
     image: quay.io/eduk8s/jdk8-environment:master
     files: github.com/everythingeverywhere/lab-rabbitmq-gs
-  session:
-    budget: medium
-    applications:
-      console:
-        enabled: true
-      editor:
-        enabled: true
+session:
+    objects:
+    - apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: rabbitmq
+      spec:
+        replicas: 1
+        selector:
+          matchLabels:
+            deployment: rabbitmq
+        strategy:
+          type: Recreate
+        template:
+          metadata:
+            labels:
+              deployment: rabbitmq
+          spec:
+            containers:
+            - name: registry
+              image: registry.hub.docker.com/library/rabbitmq:3.8.5
+              imagePullPolicy: IfNotPresent
+              ports:
+              - containerPort: 5000
+                protocol: TCP
+              env:
+              - name: REGISTRY_STORAGE_DELETE_ENABLED
+                value: "true"
+    - apiVersion: v1
+      kind: Service
+      metadata:
+        name: registry
+      spec:
+        type: ClusterIP
+        ports:
+        - port: 80
+          targetPort: 5000
+        selector:
+          deployment: registry
