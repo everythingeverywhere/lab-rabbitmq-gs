@@ -31,23 +31,20 @@ session:
               deployment: rabbitmq
           spec:
             containers:
-            - name: registry
+            - name: rabbitmq
               image: registry.hub.docker.com/library/rabbitmq:3.8.5
               imagePullPolicy: IfNotPresent
               ports:
               - containerPort: 5000
                 protocol: TCP
-              env:
-              - name: REGISTRY_STORAGE_DELETE_ENABLED
-                value: "true"
     - apiVersion: v1
       kind: Service
       metadata:
-        name: registry
+        name: rabbitmq
       spec:
         type: ClusterIP
         ports:
         - port: 80
           targetPort: 5000
         selector:
-          deployment: registry
+          deployment: rabbitmq
