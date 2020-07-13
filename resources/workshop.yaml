@@ -35,7 +35,7 @@ session:
               image: registry.hub.docker.com/library/rabbitmq:3.8.5
               imagePullPolicy: IfNotPresent
               ports:
-              - containerPort: 5000
+              - containerPort: 5672
                 protocol: TCP
     - apiVersion: v1
       kind: Service
@@ -45,6 +45,6 @@ session:
         type: ClusterIP
         ports:
         - port: 80
-          targetPort: 5000
+          targetPort: 5672
         selector:
           deployment: rabbitmq
