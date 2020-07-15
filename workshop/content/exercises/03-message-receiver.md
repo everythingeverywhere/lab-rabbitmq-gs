@@ -6,7 +6,7 @@ The Receiver is a POJO that defines a method for receiving messages. When you re
 
 > For convenience, this POJO also has a `CountDownLatch`. This lets it signal that the message has been received. This is something you are not likely to implement in a production application.
 
-```
+```execute
 cat > Receiver.java <<- "EOF"
 package com.example.messagingrabbitmq;
 

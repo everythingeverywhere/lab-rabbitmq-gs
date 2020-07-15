@@ -12,7 +12,7 @@ spec:
   content:
     image: quay.io/eduk8s/jdk8-environment:master
     files: github.com/everythingeverywhere/lab-rabbitmq-gs
-session:
+  session:
     objects:
     - apiVersion: apps/v1
       kind: Deployment
